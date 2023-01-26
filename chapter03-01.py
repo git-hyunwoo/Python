@@ -17,4 +17,9 @@ bool = True
 str2 = 'Anaconda'
 float = 10.0 # 10 == 10.0 False
 int = 7
-list = [ str1, str2 ]
+list = [ str1, str2 ] # length can be infinite
+
+
+
+
+
