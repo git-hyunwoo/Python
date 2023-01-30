@@ -15,8 +15,8 @@
 str1 = 'Python'
 bool = True
 str2 = 'Anaconda'
-float = 10.0 # 10 == 10.0 False
-int = 7
+float_v = 10.0 # 10 == 10.0 False
+int_v = 7
 list = [ str1, str2 ] # length can be infinite
 dict = {
     "name": "Machine Learning",
@@ -30,8 +30,8 @@ set = { 3,5,7 }
 print( type( str1 ) )
 print( type( bool ) )
 print( type( str2 ) )
-print( type( float ) )
-print( type( int ) )
+print( type( float_v ) )
+print( type( int_v ) )
 print( type( dict ) )
 print( type( tuple ) )
 print( type( set ) )
@@ -92,3 +92,38 @@ print( " >>>>> * " )
 print( "i1 + i2 : ", i1 * i2 )
 print( "f1 + f2 : ", f1 * f2 )
 print( "big_int1 + big_int2 : ", big_int1 * big_int2 )
+
+# 형 변환 실습
+a = 3.
+b = 6
+c = .7
+d = 12.7
+
+# 타입 출력
+print( type( a ), type( b ), type( c ), type( d ) )
+
+# 형 변환
+print( float( b ) )
+print( int( c ) )
+print( int( d ) )
+print( int( True ) ) # boolean형도 정수로 형변환하면 정수로 바뀐다. True : 1, False : 0
+print( float( False ) ) # boolean을 float으로 형변환 가능 True : 1, Flase : 0
+print( complex( 3 ) ) # 복소수
+print( complex( '3' ) ) # 문자열을 넣어도 숫자로 알아서 형변환함
+print( complex( False ) )
+print()
+
+# 수치 연산 함수
+print( abs( -7 ) ) # 절대값 ( 결과 : 7 ) 
+
+x,y = divmod( 100,8 ) # 100을 8로 나누고 몫은 x, 나머지는 y에 들어간다.
+print( x, y )
+
+print( pow( 5,3 ), 5 ** 3 ) # 둘다 x의 y제곱 
+
+
+# 외부 모듈 ( math )
+import math
+
+print( math.ceil( 5.1 ) ) # x이상의 수 중에서 가장 작은 정수를 찾음 ( ceil은 천장이라는 뜻 )
+print( math.pi )
