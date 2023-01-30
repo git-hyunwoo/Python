@@ -7,5 +7,5 @@
 <h3>Chapter 02 : How to use print()</h3>
 <hr>
 
-<h3>Chapter 03 : Operator, Casting, Internal & external library
+<h3>Chapter 03 : Data type, Operator, Casting, Internal & external library
 <hr>
