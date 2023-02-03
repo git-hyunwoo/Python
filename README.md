@@ -5,6 +5,9 @@
 <h2>Index</h2>
 <hr>
 
+<h3>IDE : <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat&logo=Visual Studio Code&logoColor=white"/></h3>
+<hr>
+
 <h3>Chapter 02 : How to use print()</h3>
 <hr>
 
@@ -15,7 +18,7 @@
 <li>Casting</li>
 <li>Internal & external library</li>
 <li>Escape String</li>
-<li>Raw String-/li>
+<li>Raw String</li>
 </ul>
 <hr>
 
