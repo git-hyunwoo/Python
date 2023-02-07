@@ -21,6 +21,18 @@ class Math():
 
         return total
 
+    # +,-,*,/ operator
+    def optr( self, sentence ):
+        
+        flag = True
+        while flag:
+            
+            if '*' in sentence or '/' in sentence or '+' in sentence or '-' in sentence:
+                pass
+            else:
+                flag = False
+
+        return sentence  
 
 
 
@@ -30,4 +42,6 @@ class Math():
 
 
 m = Math()
-print( m.sum( 1,2,3,4,5,6,7,8,9,10 ) )
+print( m.optr( '5+1*3/2' ) )
+
+
