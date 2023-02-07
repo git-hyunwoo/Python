@@ -1,20 +1,25 @@
+def hello():
+    print( 'Hello Python' )
+
+hello()
+
 # Math class , written by Jack Snider
 class Math():
     
-	def __init__( self ):
+    def __init__( self ):
         
-		pass
+        pass
     
-	# 더하기 함수
-	def sum( self , *numbers ):
+    # 더하기 함수
+    def sum( self , *numbers ):
         
-       # parameter is variable factor( 가변인수 )
+        # parameter is variable factor( 가변인수 )
         
-		total = 0  
-		for number in numbers:
-			total += number
+        total = 0  
+        for number in numbers:
+            total += number
 
-		return total
+        return total
 
 
 
