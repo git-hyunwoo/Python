@@ -22,17 +22,75 @@ class Math():
         return total
 
     # +,-,*,/ operator
-    def optr( self, sentence ):
-        
-        flag = True
-        while flag:
-            
-            if '*' in sentence or '/' in sentence or '+' in sentence or '-' in sentence:
-                pass
-            else:
-                flag = False
+    def optr( self, stnc ):
 
-        return sentence  
+        lst = []
+        tmp = ''
+        for i in range( 0, len( stnc ) ):
+            if stnc[ i ] != '*' and stnc[ i ] != '/' and stnc[ i ] != '+' and stnc[ i ] != '-':
+                
+                tmp += stnc[ i ]
+                if i == len( stnc ) - 1:
+                    lst.append( tmp )
+            else:
+                lst.append( tmp )
+                lst.append( stnc[ i ] )
+                tmp = ''
+
+        #-============ 데이터 정제 완료 -============
+
+        order = 0 # 연산 순서
+
+        for x in lst:
+            if x == '*' or x == '/':
+                if x == '*':
+                    order += 1
+                    print( f'{ order } : *' )
+                    where = lst.index( x )
+                    prv = where - 1
+                    print( f'prv : {prv}' )
+                    nxt = where + 1
+                    print( f'nxt : {nxt}' )
+                    print( f'{prv}{x}{nxt}' )
+                    tmp = int( lst[ prv ] ) * int( lst[ nxt ] )
+                    lst[ where ] = tmp
+                    lst.pop( prv )
+                    lst.pop( nxt - 1 )
+                    
+                elif x == '/':
+                    order += 1
+                    print( f'{ order } : /' )
+                    where = lst.index( x )
+                    prv = where - 1
+                    print( f'prv : {prv}' )
+                    nxt = where + 1
+                    print( f'nxt : {nxt}' )
+                    print( f'{prv}{x}{nxt}' )
+                    tmp = int( lst[ prv ] ) / int( lst[ nxt ] )
+                    lst[ where ] = int( tmp )
+                    lst.pop( prv )
+                    lst.pop( nxt - 1 )
+        
+        answer = 0
+        for y in lst:
+            tmp = 0
+            if y == '+' or y == '-':
+                if y == '+':
+                    order += 1
+                    print( f'{ order } : +' )
+                    for i in lst:
+                        if i != '+':
+                            tmp += int( float(i) )
+                        if i == '-':
+                            break
+                elif y == '-':
+                    order += 1
+                    print( f'{ order } : -' )
+                  
+
+        return lst
+
+
 
 
 
@@ -42,6 +100,6 @@ class Math():
 
 
 m = Math()
-print( m.optr( '5+1*3/2' ) )
+print( m.optr( '5/5+4*6-2' ) )
 
-
+#print( '5/5*+4/6*'.index( '*' ) )
