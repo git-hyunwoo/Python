@@ -51,3 +51,48 @@ print()
 raw_s1 = r'D:\python\test' # r다음에 오는 것은 전부 문자열로 인식한다.
 
 print( raw_s1 )
+
+# 멀티라인 입력
+# \를 넣으면 파이썬은 그 다음 라인에 변수를 바인딩 한다고 인식함( 중요!!! )
+multi_str = \
+'''
+String
+Multi line
+Test
+'''
+print( multi_str )
+
+# 문자열 연산
+str_o1 = 'python'
+str_o2 = 'Apple'
+str_o3 = 'How are you doing?'
+str_04 = 'Seiul Daejeon Busan Jinju'
+
+print( str_o1 * 2 )
+print( str_o1 + str_o2 )
+print( 'y' in str_o1 )
+print( 'z' in str_o1 )
+print( 'P' not in str_o2 )
+
+# 문자열 형 변환
+print( str( 66 ) , type( str( 66 ) ) )
+print( str( 10.1 ) )
+print( str( True ), type( str( True ) ) )
+
+# 문자열 함수( upper, isalnum, startswith, count, endswith, isalpha... )
+
+print( "Capitalize : ", str_o1.capitalize() )
+print("endswith : ", str_o2.endswith('e'))
+print('replace : ', str_o1.replace("thon",'Good'))
+print('sorted : ', sorted(str_o1)) # return as list type with sorted 
+print('split : ', str_04.split(' ')) # return as list type with splited by parameter
+
+# sequence()
+im_str = 'Good Boy!'
+
+# dir() returns every attribute of parameter's type
+print(dir(im_str)) # __iter__
+
+# print
+for i in im_str:
+    print(i)
