@@ -78,11 +78,6 @@ class Math():
                 if y == '+':
                     order += 1
                     print( f'{ order } : +' )
-                    for i in lst:
-                        if i != '+':
-                            tmp += int( float(i) )
-                        if i == '-':
-                            break
                 elif y == '-':
                     order += 1
                     print( f'{ order } : -' )

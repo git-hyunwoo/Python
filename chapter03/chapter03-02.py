@@ -96,3 +96,26 @@ print(dir(im_str)) # __iter__
 # print
 for i in im_str:
     print(i)
+
+# 슬라이싱
+# [ 시작 인덱스 : 끝 인덱스 : step ]
+# 음수는 오른쪽 → 왼쪽
+# 양수는 왼쪽 → 오른쪽
+str_s1 = 'Nice Python'
+
+print( len( str_s1 ) )
+# 슬라이싱 연습
+print( str_s1[ 0 : 3 ] ) # 마지막은 -1을 하므로 3 - 1까지의 인덱스까지만 나온다.
+print( str_s1[ 5 : ] ) # 5번 째 인덱스부터 끝까지
+print( str_s1[ : len( str_s1 ) ] ) # 처음부터 배열의 길이만큼의 인덱스 까지
+print( str_s1[ 1 : 9 : 2 ] ) # 1번 째 인덱스퉈 9 - 1 인덱스까지 2칸씩 건너뛰어라
+print( str_s1[ -5 : ] ) # -가 붙으면 끝에서부터 시작
+print( str_s1[ 1 : -2 ] )
+print( str_s1[ : : 2 ] )
+print( str_s1[ : : -1 ] ) # 처음부터 끝까지 가는데 -1 ( 맨 마지막 )부터 시작해라, 즉 문자열이 뒤집힘
+
+# 아스키 코드
+a = 'z'
+
+print( ord( a ) )  # ord : 문자 → 아스키 코드
+print( chr( 122 ) ) # chr : 아스키 코드 → 문자
