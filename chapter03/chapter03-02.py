@@ -74,7 +74,7 @@ print( 'y' in str_o1 )
 print( 'z' in str_o1 )
 print( 'P' not in str_o2 )
 
-# 문자열 형 변환
+# 문자열 형변환
 print( str( 66 ) , type( str( 66 ) ) )
 print( str( 10.1 ) )
 print( str( True ), type( str( True ) ) )
