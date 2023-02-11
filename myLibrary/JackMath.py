@@ -20,6 +20,8 @@ class Math():
             total += number
 
         return total
+        
+ 
 
     # +,-,*,/ operator
     def optr( self, stnc ):
