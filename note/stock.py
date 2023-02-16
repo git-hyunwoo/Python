@@ -79,9 +79,10 @@ data = [
  	},
  		
 ]
-year = 100
+year = 10
 daily_invest = 2000
 total = 0
+origin = 0
 # which stock
 for stock in data:
 	sum = 0
@@ -91,19 +92,21 @@ for stock in data:
 	for day in range( 1, year * 365 + 1 ):
 		
 		sum += daily_invest
-		
+		origin += daily_invest
+
 		# with how much period
 		if day % ( stock[ 'period' ] * 30 ) == 0:
 			payed_interest += 1
-			sum += sum * ( stock[ 'interest' ] / ( 12 / stock[ 'period'] ) )
+			sum += ( sum * stock[ 'interest' ]   ) / ( 12 / stock[ 'period'] )
 			#print( f'INTEREST : {sum * stock[ "interest" ]}')
 		
 		if day % 365 == 0:
-			print( f'{int(day / 365)} year : {int( sum )}won' )
+			print( f'{int(day / 365)} year : {int( sum )}won | ${int( sum / 1280 )}' )
 			
 	total += sum
 
 print( '=========================================' )
-print( f'TOTAL : {int( total )}won')
+print( f'ORIGIN : {int( origin )}won | ${int( origin / 1280 )}')
+print( f'INVEST : {int( total )}won | ${int( total / 1280 )}')
 	
 
