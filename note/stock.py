@@ -79,7 +79,7 @@ data = [
  	},
  		
 ]
-year = 3
+year = 100
 daily_invest = 2000
 total = 0
 # which stock
@@ -95,7 +95,7 @@ for stock in data:
 		# with how much period
 		if day % ( stock[ 'period' ] * 30 ) == 0:
 			payed_interest += 1
-			sum += sum * stock[ 'interest' ]
+			sum += sum * ( stock[ 'interest' ] / ( 12 / stock[ 'period'] ) )
 			#print( f'INTEREST : {sum * stock[ "interest" ]}')
 		
 		if day % 365 == 0:
