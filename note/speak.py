@@ -36,11 +36,7 @@ def speak( text ):
     os.remove( filename )
 
 
-warning = 'Warning, Hannah needs more chocolates.'
-alert = 'Beep Beep, Hannah is hungry'
-
-speak( warning )
-speak( alert )
+speak( 'Hello world!' )
 
 
 
