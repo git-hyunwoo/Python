@@ -1,10 +1,30 @@
-class Stock():
-	
-	def __init__( self, name ):
-		self.name = name
-		
-	
-	
+from bs4 import BeautifulSoup
+import urllib.request as req
+
+# HTML 가져오기
+url = "http://finance.naver.com/marketindex/"
+res = req.urlopen(url)
+
+# HTML 분석하기
+soup = BeautifulSoup(res, "html.parser")
+
+#원하는 데이터 추출하기
+price = soup.select_one("div.head_info > span.value").string
+price = price.replace( ',','' )
+dollar = ''
+
+
+print("usd/krw = ", price)	
+
+
+for letter in price:
+	if letter == '.':
+		break
+	dollar += letter
+
+dollar = int( dollar ) 
+
+print( dollar )
  
 data = [
  	
@@ -101,12 +121,12 @@ for stock in data:
 			#print( f'INTEREST : {sum * stock[ "interest" ]}')
 		
 		if day % 365 == 0:
-			print( f'{int(day / 365)} year : {int( sum )}won | ${int( sum / 1280 )}' )
+			print( f'{int(day / 365)} year : {int( sum )}won | ${int( sum / dollar )}' )
 			
 	total += sum
 
 print( '=========================================' )
-print( f'ORIGIN : {int( origin )}won | ${int( origin / 1280 )}')
-print( f'INVEST : {int( total )}won | ${int( total / 1280 )}')
+print( f'ORIGIN : {int( origin )}won | ${int( origin / dollar )}')
+print( f'INVEST : {int( total )}won | ${int( total / dollar )}')
 	
 
