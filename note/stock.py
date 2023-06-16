@@ -1,132 +1,54 @@
-from bs4 import BeautifulSoup
-import urllib.request as req
+class Stock():
 
-# HTML 가져오기
-url = "http://finance.naver.com/marketindex/"
-res = req.urlopen(url)
+  def __init__( self, name = 'None', invest_amount = 0, price = 0, percent = 0, term = 0, year = 0 ):
 
-# HTML 분석하기
-soup = BeautifulSoup(res, "html.parser")
+    """
+    name : 종목이름
+    invest_amount : 투자금
+    price : 1주당 가격
+    percent : 배당률( 연 )
+    term : 배당주기( 1개월, 4개월 ... )
+    year : 몇년 동안 투자할 것인지
+    """
+    
+    self.name = name
+    self.invest_amount = invest_amount
+    self.price = price
+    self.percent = percent
+    self.term = term
+    self.year = year
 
-#원하는 데이터 추출하기
-price = soup.select_one("div.head_info > span.value").string
-price = price.replace( ',','' )
-dollar = ''
+  def __str__( self ):
+    return f'{ self.name }'
 
+  def calculate( self ):
 
-print("usd/krw = ", price)	
+    """
+    어떤 종목에 얼마를 몇퍼센트 배당률로 몇년간 투자하해야 얼마의 수익을 얻는가?
+    """
+    reward = 0
+    
+    if self.percent >= 1:
+      self.percent = self.percent / 100
+    
+    
+    if self.year == 0:
+      return '투자기간은 0년이 될 수 없습니다.'
 
+    # 투자금으로 살 수 있는 주식 갯수
+    stocks = ( int ) ( self.invest_amount / self.price )
 
-for letter in price:
-	if letter == '.':
-		break
-	dollar += letter
+    # 투자할 기간 X 연당 배당 횟수 = 투자기간동안 받을 총 배당 횟수
+    round = self.year * self.term
 
-dollar = int( dollar ) 
+    for _ in range( 1, round + 1 ):
 
-print( dollar )
- 
-data = [
- 	
- 	{
- 		'name' : 'Apple',
- 		'price' : 152.93,
- 		'interest' : 0.006, # 0.6%
- 		'period' : 3
- 	},
- 	
- 	{
- 		'name' : 'Lockheed Martin',
- 		'price' : 480.18,
- 		'interest' : 0.0237,
- 		'period' : 3
- 	},
- 	
- 	{
- 		'name' : 'Raytheon Technologies',
- 		'price' : 101.40,
- 		'interest' : 0.0213,
- 		'period' : 3
- 	},
- 	
- 	{
- 		'name' : 'Altria',
- 		'price' : 47.33,
- 		'interest' : 0.0776,
- 		'period' : 3
- 	},
- 	
- 	{
- 		'name' : 'OneOk',
- 		'price' : 68.76,
- 		'interest' : 0.0536,
- 		'period' : 3
- 	},
- 	
- 	{
- 		'name' : 'Nike',
- 		'price' : 125.43,
- 		'interest' : 0.0099,
- 		'period' : 3
- 	},
- 	
- 	{
- 		'name' : 'Realty Income',
- 		'price' : 65.75,
- 		'interest' : 0.0449,
- 		'period' : 1
- 	},
- 	
- 	{
- 		'name' : 'Coca Cola',
- 		'price' : 59.35,
- 		'interest' : 0.0292,
- 		'period' : 3
- 	},
- 	
- 	{
- 		'name' : 'Chevron',
- 		'price' : 168.80,
- 		'interest' : 0.033,
- 		'period' : 3
- 	},
- 	
- 	{
- 		'name' : 'Pfizer',
- 		'price' : 43.47,
- 		'interest' : 0.0368,
- 		'period' : 3
- 	},
- 		
-]
-year = 10
-daily_invest = 2000
-total = 0
-origin = 0
-# which stock
-for stock in data:
-	sum = 0
-	payed_interest = 0
-	print( f'==================== {stock[ "name" ]} =====================' )
-	# for how many years ( count with day : 365 )
-	for day in range( 1, year * 365 + 1 ):
-		
-		sum += daily_invest
-		origin += daily_invest
+      per_interest = ( self.invest_amount * self.percent ) / self.term # ( 투자금 * 연 배당률 ) / 연당 배당 횟수 = 한 배당 회차당 받는 금액
 
-		# with how much period
-		if day % ( stock[ 'period' ] * 30 ) == 0:
-			payed_interest += 1
-			sum += ( sum * stock[ 'interest' ]   ) / ( 12 / stock[ 'period'] )
-			#print( f'INTEREST : {sum * stock[ "interest" ]}')
-		
-		if day % 365 == 0:
-			print( f'{int(day / 365)} year : {int( sum )}won | ${int( sum / dollar )}' )
-			
-	total += sum
+      # 투자금 + per_interest 
 
-print( '=========================================' )
-print( f'ORIGIN : {int( origin )}won | ${int( origin / dollar )}')
-print( f'INVEST : {int( total )}won | ${int( total / dollar )}')
-	
+      # stocks = ( int ) ( self.invest_amount / self.price ) → 이자가 쌓여서 주식을 살 수 있으면 계속 산다.
 
+apple = Stock( )
+
+    
