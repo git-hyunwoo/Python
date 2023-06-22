@@ -7,3 +7,14 @@ def function():
     """
 
     return 1
+    
+
+    # := warlus operator
+    # assign and return at the same time    
+if a := 5 <= 6:
+	print( 'yeah~' )
+else :
+	print( 'shit~' )
+	
+	
+print( f'a : {a}' ) # True
