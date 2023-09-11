@@ -29,3 +29,18 @@ print(result4)
 
 
 
+<<<<<<< HEAD
+=======
+    return 1
+    
+
+    # := warlus operator
+    # assign and return at the same time    
+if a := 5 <= 6:
+	print( 'yeah~' )
+else :
+	print( 'shit~' )
+	
+	
+print( f'a : {a}' ) # True
+>>>>>>> 6d482109311038cfcbf7defb50bc744e8dbf4335
