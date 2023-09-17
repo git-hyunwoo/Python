@@ -1,13 +1,10 @@
-x = 29
-y = x + 1
+# Python3 샘플 코드 #
 
-z = 29
 
-print(f'id(x) : {id(x)}')
-print(f'id(y) : {id(y)}')
-print(f'id(z) : {hex(id(z))}')
+import requests
 
-if id(x) == id(z):
-    print("둘의 메모리 주소는 같습니다")
-else:
-    print("둘의 메모리 주소는 같지 않습니다")
+url = 'http://apis.data.go.kr/1262000/CountryPopulationService2/getCountryPopulationList2'
+params ={'serviceKey' : '서비스키', 'pageNo' : '1', 'numOfRows' : '10', 'cond[country_nm::EQ]' : '가나', 'cond[country_iso_alp2::EQ]' : 'GH', 'returnType' : 'JSON' }
+
+response = requests.get(url, params=params)
+print(f'a : {response.content}')
