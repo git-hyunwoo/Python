@@ -1,42 +1,31 @@
-import speech_recognition as sr
-
-from gtts import gTTS
-
 import os
 
-import time
+# 경로 요소 결합
+path1 = "C:/Users"
+path2 = "Username"
+full_path = os.path.join(path1, path2)
+print("Joined Path:", full_path)
 
-import playsound
+# 경로 존재 여부 확인
+file_path = "/path/to/your/file.txt"
+if os.path.exists(file_path):
+    print("File exists:", file_path)
+else:
+    print("File does not exist:", file_path)
 
-'''
-안녕하세요. 길동씨라고 읽어주는 결과를 맞이할 것이다.
+# 파일 또는 디렉토리 여부 확인
+if os.path.isfile(file_path):
+    print("It's a file:", file_path)
+elif os.path.isdir(file_path):
+    print("It's a directory:", file_path)
 
-먼저 pip install speechrecognition 실행
+# 파일 이름과 확장자 분리
+file_name = "example.txt"
+name, extension = os.path.splitext(file_name)
+print("File Name:", name)
+print("Extension:", extension)
 
-pip install gTTs 실행
-
-그리고 마지막으로 pip install playsound 실행
-
-3가지는 기본으로 설치되어야 실행이 된다는 사실은 기억하자.
-
-실행후 작업폴더에 보면 voice.mp3로 저장된 파일을 만날 수 있다.
-
-너무도 신통방통한 음성으로 읽어주는 TTS 이제 어렵지 않게 접근할 수 있다
-'''
-
-def speak( text ):
-
-    tts = gTTS( text=text, lang='en' )
-
-    filename = 'voice.mp3'
-
-    tts.save( filename )
-
-    playsound.playsound( filename )
-    os.remove( filename )
-
-
-speak( 'Hello world!' )
-
-
-
+# 절대 경로로 변환
+relative_path = "../documents/file.txt"
+absolute_path = os.path.abspath(relative_path)
+print("Absolute Path:", absolute_path)
