@@ -19,7 +19,7 @@ if os.path.isfile(file_path):
 elif os.path.isdir(file_path):
     print("It's a directory:", file_path)
 
-# 파일 이름과 확장자 분리
+# 파일 이름과 확장자 분리한다
 file_name = "example.txt"
 name, extension = os.path.splitext(file_name)
 print("File Name:", name)
