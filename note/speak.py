@@ -25,7 +25,7 @@ name, extension = os.path.splitext(file_name)
 print("File Name:", name)
 print("Extension:", extension)
 
-# 절대 경로로 변환
+# 절대 경로로 변환한다
 relative_path = "../documents/file.txt"
 absolute_path = os.path.abspath(relative_path)
 print("Absolute Path:", absolute_path)
