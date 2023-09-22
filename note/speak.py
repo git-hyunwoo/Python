@@ -1,3 +1,4 @@
+# random 모듈
 import random
 
 # 동일한 시드를 사용하여 난수 생성기 초기화
