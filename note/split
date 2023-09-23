@@ -1,0 +1,34 @@
+text = "Hello World"
+words = text.split()
+#print(words) # 출력 : ['Hello', 'World']
+
+
+csv_data = "apple,banana,grape"
+fruits = csv_data.split(',')
+#print(fruits) # 출력 :  ['apple', 'banana', 'grape']
+# fruits는 ['apple', 'banana', 'grape']를 포함하는 리스트가 됩니다.
+
+
+text = "one two three four five"
+parts = text.split(' ', 2)
+#print(parts) # 출력 : ['one', 'two', 'three four five']
+# parts는 ['one', 'two', 'three four five']를 포함하는 리스트가 됩니다.
+
+text = "one two three four five"
+parts = text.split(sep=' ', maxsplit=2)
+# print(parts) # 출력 :  ['one', 'two', 'three four five']
+# parts는 ['one', 'two', 'three four five']를 포함하는 리스트가 됩니다.
+
+
+words = "This-is-Hungry-Developer"
+
+# 문자열.split('-', 3)
+print(words.split('-', 3)) # 출력 : ['This', 'is', 'Hungry', 'Developer']
+
+# 문자열.split('-', maxsplit=3)
+print(words.split('-', maxsplit = 3)) # 출력 : ['This', 'is', 'Hungry', 'Developer']
+
+# 문자열.split(sep=' ', maxsplit=3)
+print(words.split(sep = '-', maxsplit = 3)) # 출력 : ['This', 'is', 'Hungry', 'Developer']
+
+
