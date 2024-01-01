@@ -1,18 +1,21 @@
-# Python3 샘플 코드 #
+def decorator1(func):
+    def wrapper(x):
+        result = func(x)
+        print(f'Decorator 1 result : {result}')
+        return result
+    return wrapper
 
-from urllib.parse import urlencode, quote_plus
-import requests
+def decorator2(func):
+    def wrapper(x):
+        result = func(x)
+        print(f'Decorator 2 result : {result}')
+        # 추가로 decorator1의 wrapper 함수를 호출하고, 결과값을 사용
+        return decorator1(func)(x)
+    return wrapper
 
-# encoding : KS0VEcGhDJ5DvzTPii8dS7nQx2NnkjXENS%2FTqHorTk8%2F9gSneDrklBugS1%2BjeR8cfCRj%2Bv8QwZV2IrEcPUEJPA%3D%3D
-# decoding : KS0VEcGhDJ5DvzTPii8dS7nQx2NnkjXENS/TqHorTk8/9gSneDrklBugS1+jeR8cfCRj+v8QwZV2IrEcPUEJPA==
+@decorator2
+def add(x):
+    x += 1
+    return x
 
-key = requests.utils.unquote('KS0VEcGhDJ5DvzTPii8dS7nQx2NnkjXENS/TqHorTk8/9gSneDrklBugS1+jeR8cfCRj+v8QwZV2IrEcPUEJPA==')
-
-url = 'http://apis.data.go.kr/1262000/CountryPopulationService2/getCountryPopulationList2'
-params ={'serviceKey' : key, 'pageNo' : '1', 'numOfRows' : '10', 'cond[country_nm::EQ]' : '가나', 'cond[country_iso_alp2::EQ]' : 'GH', 'returnType' : 'XML' }
-
-response = requests.get(url, params=params) # 결과값이 bytes로 반환된다?...
-
-print(response.content)
-
-
+print(add(1))

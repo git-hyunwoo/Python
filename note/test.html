@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Function Example</title>
+</head>
+<body>
+
+<button id="myButton">Click me</button>
+
+<script>
+    // 외부 함수
+    function outerFunction() {
+        alert("Outer function called!");
+
+        // 내부 함수 호출
+        innerFunction();
+    }
+
+    // 내부 함수
+    function innerFunction() {
+        alert("Inner function called!");
+    }
+
+    // 이벤트 핸들러 함수 등록
+    document.getElementById("myButton").onclick = function() {
+        // 외부 함수 호출
+        outerFunction();
+    };
+</script>
+
+</body>
+</html>
