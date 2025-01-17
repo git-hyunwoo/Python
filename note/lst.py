@@ -4,7 +4,7 @@ result = ''.join(seq)
 
 
 
-
+print('hello world!')
 
 seq = ["apple", "banana", "cherry", 0.1, True, 123]
 result = ', '.join(map(str, seq))
