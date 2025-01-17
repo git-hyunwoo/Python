@@ -1,6 +1,6 @@
 seq = ["apple", "banana", "cherry"]
 result = ''.join(seq)
-#print(result)
+#print(result)!!
 
 
 
